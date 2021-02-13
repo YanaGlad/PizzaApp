@@ -13,8 +13,23 @@ class Main(tk.Frame):
         frame = tk.Frame(bg='#d7d8e0', bd=2)
         frame.pack(side=tk.TOP, fill=tk.X)
 
+        self.pizza_img = tk.PhotoImage(file = 'pizza.png')
+
+        btn = tk.Button(frame, text = 'Buy', command = self.buy, bg='#d7d8e0', bd=0,
+                                    compound=tk.TOP, image=self.pizza_img)
+        btn.pack(side = tk.LEFT)
 
 
+    def buy(self):
+        ChoosePizza()
+
+class ChoosePizza(tk.Toplevel):
+    def __init__(self):
+        super().__init__(root)
+        self.init_subapp()
+
+    def init_subapp(self):
+        self.title("Choose Pizza")
 
 if __name__ == "__main__":
     root = tk.Tk()
