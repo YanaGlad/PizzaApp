@@ -29,7 +29,6 @@ class Main(tk.Frame):
 
         self.tree.pack()
 
-
     def buy(self):
         ChoosePizza()
 
@@ -42,6 +41,25 @@ class ChoosePizza(tk.Toplevel):
     def init_subapp(self):
         self.title("Choose Pizza")
         self.geometry("600x400+326+235")
+
+        self.pepperoni = tk.Button(self, text='Buy margarita', command=self.buy_pizza('pepperoni'), bg='#d7d8e0', bd=0,
+                                   height=1, width=30)
+        self.europa = tk.Button(self, text='Buy europa', command=self.buy_pizza('pepperoni'), bg='#d7d8e0', bd=0,
+                                height=1, width=30)
+        self.mexico = tk.Button(self, text='Buy mexico', command=self.buy_pizza('pepperoni'), bg='#d7d8e0', bd=0,
+                                height=1, width=30)
+        self.palermo = tk.Button(self, text='Buy palermo', command=self.buy_pizza('pepperoni'), bg='#d7d8e0', bd=0,
+                                 height=1, width=30)
+        self.pepperoni = tk.Button(self, text='Buy pepperoni', command=self.buy_pizza('pepperoni'), bg='#d7d8e0', bd=0,
+                                   height=1, width=30)
+
+        self.pepperoni.pack()
+        self.europa.pack()
+        self.mexico.pack()
+        self.palermo.pack()
+
+    def buy_pizza(self, text):
+        print(text)
 
 
 if __name__ == "__main__":
