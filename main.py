@@ -3,10 +3,25 @@ from tkinter import ttk
 import sqlite3
 
 
+class DB:
+    def __init__(self):
+        self.conn = sqlite3.connect('pizza.db')
+        self.cursor = self.conn.cursor()
+        self.cursor.execute(
+            '''CREATE TABLE IF NOT EXISTS pizza (id integer primary key, name text, price text)''')
+        self.conn.commit()
+
+    def insert_data(self, name, price):
+        self.cursor.execute('''INSERT INTO finance(description, costs, total) VALUES ( ?, ?)''',
+                            (name, price))
+        self.conn.commit()
+
+
 class Main(tk.Frame):
-    def __init__(self, root):
+    def __init__(self, root, db):
         super().__init__(root)
         self.init_myapp()
+        self.db = db
 
     def init_myapp(self):
         frame = tk.Frame(bg='#d7d8e0', bd=2)
